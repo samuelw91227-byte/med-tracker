@@ -227,12 +227,12 @@
         return d.toISOString().split('T')[0];
     }
 
-    function getDaysDiff(dateString) {
-        if (!dateString) return Infinity;
-        const last = new Date(dateString);
-        const now = new Date(getTodayString());
-        const diffTime = Math.abs(now - last);
-        return Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+    function getTodayString() {
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = String(now.getMonth() + 1).padStart(2, '0');
+        const date = String(now.getDate()).padStart(2, '0');
+        return `${year}-${month}-${date}`;
     }
 
     // --- UI 更新邏輯 ---
@@ -377,3 +377,4 @@
 </body>
 
 </html>
+
